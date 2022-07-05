@@ -81,5 +81,5 @@
 @endsection
 
 @section('footer')
-    copyright 2020 tuyano.
+    copyright 2019 tuyano.
 @endsection
