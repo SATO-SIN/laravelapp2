@@ -9,12 +9,19 @@ class HelloMiddleware
 {
     public function handle($request, Closure $next)
     {
-        $data = [
-            ['name' => 'taro', 'mail' => 'taro@yamada'],
-            ['name' => 'hanako', 'mail' => 'hanako@flower'],
-            ['name' => 'sachiko', 'mail' => 'sachiko@happy'],
-        ];
-        $request->merge(['data' => $data]);
-        return $next($request);
+        // $nextを実行し結果を$responseに代入
+        $response = $next($request);
+
+        // コントローラが実行され、結果のレスポンスが変数$responseに収まる
+        // このレスポンスを使って処理を行う
+        // まず、レスポンスから返送されるコンテンツを取得
+        $content = $response->content();
+
+
+        $pattern = '/<middleware>(.*)<\/middleware>/i';
+        $replace = '<a href="http://$1">$1</a>';
+        $content = preg_replace($pattern, $replace, $content);
+        $response->setContent($content);
+        return $response;
     }
 }

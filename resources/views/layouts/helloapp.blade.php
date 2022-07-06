@@ -44,6 +44,18 @@
             border-bottom: solid 1px #BBBBBB;
             color: #000;
         }
+
+        th {
+            background-color: #999;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        td {
+            border: solid 1px #aaa;
+            color: #999;
+            padding: 5px 10px;
+        }
     </style>
 </head>
 
