@@ -7,7 +7,6 @@ use App\Http\Middleware\HelloMiddleware;
 
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +34,14 @@ Route::post('hello/edit', 'App\Http\Controllers\HelloController@update');
 
 Route::get('hello/del', 'App\Http\Controllers\HelloController@del');
 Route::post('hello/del', 'App\Http\Controllers\HelloController@remove');
+
+Route::get('hello/show', 'App\Http\Controllers\HelloController@show');
+
+Route::get('person', 'App\Http\Controllers\PersonController@index');
+
+Route::get('person/find', 'App\Http\Controllers\PersonController@find');
+Route::get('person/find', 'App\Http\Controllers\PersonController@search');
+
+Route::get('board', 'BoardController@index');
+Route::get('board/add', 'BoardController@add');
+Route::post('board/add', 'BoardController@create');
