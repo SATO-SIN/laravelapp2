@@ -6,7 +6,6 @@
 use App\Http\Middleware\HelloMiddleware;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +39,15 @@ Route::get('hello/show', 'App\Http\Controllers\HelloController@show');
 Route::get('person', 'App\Http\Controllers\PersonController@index');
 
 Route::get('person/find', 'App\Http\Controllers\PersonController@find');
-Route::get('person/find', 'App\Http\Controllers\PersonController@search');
+Route::post('person/find', 'App\Http\Controllers\PersonController@search');
 
 Route::get('board', 'BoardController@index');
 Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
+
+Route::get('hello/session', 'App\Http\Controllers\HelloController@ses_get');
+Route::get('hello/session', 'App\Http\Controllers\HelloController@ses_put');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
